@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
 import "./globals.css";
+
+import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+
+import { Toaster } from "@/components/ui/sonner";
 
 // import { Geist, Geist_Mono } from "next/font/google";
 
@@ -25,9 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      publishableKey={
+        "pk_test_ZGVjaWRpbmctZ3JvdXBlci04My5jbGVyay5hY2NvdW50cy5kZXYk"
+      }
+    >
       <html lang="en">
-        <body className={"font-mono antialiased"}>{children}</body>
+        <body className={"font-sans antialiased"}>
+          <Toaster />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );

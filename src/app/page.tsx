@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   ClerkProvider,
   SignInButton,
@@ -6,6 +7,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import Link from "next/link";
 
 const HomePage = () => {
   return (
@@ -16,6 +18,17 @@ const HomePage = () => {
             <SignInButton />
             <SignUpButton />
           </SignedOut>
+          <Link href={"/dashboard"}>
+            <Button size={"sm"} className="px-4">
+              Dashboard
+            </Button>
+          </Link>
+          <Link href={"/teacher/courses"}>
+            <Button variant={"secondary"} size={"sm"} className="px-4">
+              Teacher Mode
+            </Button>
+          </Link>
+
           <SignedIn>
             <UserButton />
           </SignedIn>
